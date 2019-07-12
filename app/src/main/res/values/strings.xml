@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ModelsRxJava</string>
+    <string name="error_fetch_message">Error fetch countries, Try again please</string>
 </resources>

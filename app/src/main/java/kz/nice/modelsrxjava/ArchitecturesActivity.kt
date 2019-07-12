@@ -1,8 +1,8 @@
 package kz.nice.modelsrxjava
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.view.View
 import kz.nice.modelsrxjava.mvc.MVCActivity
 import kz.nice.modelsrxjava.mvp.MVPActivity
