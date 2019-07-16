@@ -1,16 +1,15 @@
-package kz.nice.modelsrxjava.mvc
+package kz.nice.modelsrxjava.mvp
 
-import android.util.Log
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kz.nice.modelsrxjava.model.CountriesService
 
-class CountriesController {
+class CountriesPresenter {
 
-    var view: MVCActivity
-    var service: CountriesService
+    private var service: CountriesService
+    private var view: View
 
-    constructor(view: MVCActivity) {
+    constructor(view: View) {
         this.view = view
         this.service = CountriesService()
         fetchCountries()
@@ -29,16 +28,20 @@ class CountriesController {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 {
-                    view.setListValues(it)
-                },
-                {
-                    Log.w("LOG_TAG", "Error: $it")
+                    view.setValues(it)
+                }, {
                     view.onError()
                 }
             )
     }
-    
+
     fun onRefresh() {
-        this.fetchCountries()
+        fetchCountries()
+    }
+
+
+    interface View {
+        fun setValues(list: ArrayList<String>)
+        fun onError()
     }
 }

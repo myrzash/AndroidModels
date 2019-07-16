@@ -21,9 +21,9 @@ class MVCActivity : AppCompatActivity() {
         controller = CountriesController(this)
         adapter = ArrayAdapter(this, R.layout.row_layout, R.id.textViewName, listValues)
         listViewMVC.adapter = adapter
-        listViewMVC.setOnItemClickListener({ parent, view, position, id ->
+        listViewMVC.setOnItemClickListener { parent, view, position, id ->
             Toast.makeText(this, "clicked ${listValues.get(position)}", Toast.LENGTH_SHORT).show()
-        })
+        }
     }
 
     fun setListValues(values: List<String>) {
